@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="dist/output.css">
+    <script>if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }</script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                    <a href="#home" class="font-bold text-lg text-primary block py-6">alhajjri</a>
+                    <a href="#home" class="font-bold text-lg text-primary dark:text-white block py-6">Al Hajjri</a>
                 </div>
                 <div class="flex items-center px-4">
                     <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
@@ -23,23 +28,35 @@
                         <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
                     <nav id="nav-menu"
-                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent">
                         <ul class="block lg:flex">
                             <li class="group">
                                 <a href="#home"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
+                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Beranda</a>
                             </li>
                             <li class="group">
                                 <a href="#about"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang saya</a>
+                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Tentang saya</a>
                             </li>
                             <li class="group">
                                 <a href="#portfolio"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Portofolio</a>
+                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Portofolio</a>
                             </li>
                             <li class="group">
                                 <a href="#contact"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Contact</a>
+                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Contact</a>
+                            </li>
+                            <li class="flex items-center pl-8 mt-3 lg:mt-0">
+                                <div class="flex">
+                                    <span class="mr-2 text-sm text-slate-500">light</span>
+                                    <input type="checkbox" class="hidden" id="dark-toggle">
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                                            <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -50,30 +67,28 @@
     <!-- header end -->
 
     <!-- hero section start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 pb-6 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full self-center px-4 lg:w-1/2">
                     <h1 class="text-base font-semibold text-primary md:text-xl ">Hallo semua 😉, Saya <span
-                            class="block font-bold text-dark text-3xl mt-1 lg:text-4xl">Al Hajjri Prima Saputra</span>
+                            class="block font-bold text-dark text-2xl mt-1 lg:text-4xl dark:text-white">Al Hajjri Prima Saputra</span>
                     </h1>
-                    <h2 class="font-medium text-secondary text-lg mb-5">Web developer</h2>
-                    <p class="font-medium text-secondary mb-10 leading-relaxed">Belajar web programing itu mudah dan
-                        menyenangkan bukan. <span class="font-bold text-dark"> bukan!</span></p>
+                    <h2 class="font-medium text-secondary text-lg mb-5 dark:text-white">Web developer</h2>
+                    <p class="font-medium text-secondary mb-10 leading-relaxed">Bikin Web Impianmu Jadi Nyata, Yuk Mulai
+                        Bersama <br> <span class="font-bold text-dark dark:text-white"> Let's Go</span></p>
 
-                    <a href="#"
+                    <a href="#contact"
                         class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out ">Hubungi
                         saya</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-0 lg:right-0 ">
-                        <img src="dist/img/Al.png" alt="Al Hajjri Prima Saputra" class="max-w full mx-auto">
-                        <span class="absolute -bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-125">
-                            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#22d3ee"
-                                    d="M72.4,-22.5C81.7,5.1,68.7,40.9,47.4,53.7C26,66.5,-3.7,56.2,-22.9,40.2C-42.2,24.2,-50.9,2.4,-45.4,-20C-39.8,-42.4,-19.9,-65.5,5.8,-67.4C31.6,-69.3,63.1,-50,72.4,-22.5Z"
-                                    transform="translate(100 100) scale(1.1)" />
-                            </svg>
+                        <img src="dist/img/Al.png" alt="Al Hajjri Prima Saputra" class="max-w full mx-auto relative z-10 ">
+                        <span class="absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
+                              <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#22d3ee" d="M46.3,-20.1C52.2,3.3,44,26.3,27.4,38.6C10.7,51,-14.4,52.7,-32,40.7C-49.6,28.7,-59.8,3,-53.2,-21.3C-46.6,-45.5,-23.3,-68.4,-1.6,-67.8C20.1,-67.3,40.3,-43.5,46.3,-20.1Z" transform="translate(100 100) scale(1.1)" />
+                              </svg>
                         </span>
                     </div>
                 </div>
@@ -83,21 +98,26 @@
     <!-- hero section end -->
 
     <!-- about section start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Tentang saya</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">Yuk belajar web programing!</h2>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor sit amet
-                        consectetur
-                        adipisicing elit. Iusto, doloribus a unde tenetur consequuntur esse rerum!</p>
+                    <h2 class="font-bold text-dark text-2xl mb-5 max-w-md lg:text-3xl dark:text-white">Ayo belajar web programing!</h2>
+                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Saya adalah mahasiswa Teknik
+                        Informatika semester 6 di Universitas Putra Indonesia YPTK Padang, yang bersemangat dalam dunia
+                        pengembangan web, khususnya front-end. Melalui perjalanan akademik saya, saya telah mengasah
+                        kemampuan untuk belajar HTML, CSS, JavaScript, dan React.js, mempersiapkan diri untuk memberikan
+                        solusi web yang kreatif dan efektif. Dengan semangat dan keterampilan ini, saya siap
+                        menghadirkan inovasi dalam setiap proyek web.</p>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-2xl lg:pt-10">Mari berteman</h3>
-                    <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Lorem ipsum dolor sit, amet
-                        consectetur adipisicing
-                        elit. Architecto laborum recusandae, itaque alias nobis magni? Unde?</p>
+                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-2xl lg:pt-10 dark:text-white">Mari berteman</h3>
+                    <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Ayo berteman dan buat karya bareng!
+                        Di dunia yang penuh kesempatan, bekerja sama itu penting. Kita bisa cari ide baru dan buat
+                        proyek keren bersama. Saya percaya, bertemu orang baru bisa bawa peluang istimewa. Siap untuk
+                        petualangan seru ini dan buat sesuatu yang berarti? Yuk, ikut serta dan kita bangun masa depan
+                        digital yang cemerlang bersama.</p>
                     <div class="flex items-center">
                         <!-- instagram -->
                         <a href="http://instagram.com/alhajjriprimasaputra_" target="_blank"
@@ -148,53 +168,67 @@
 
 
     <!-- portfolio section start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portfolio" class="pt-28 bg-slate-100 dark:bg-slate-800">
         <div class="container">
-            <div class="w-full px-4">]
+            <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">portfolio</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4">Project terbaru</h2>
-                    <p class="font-medium text-md text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Assumenda soluta esse quae repudiandae quos obcaecati suscipit ad corrupti doloremque
-                        quisquam.</p>
+                    <h4 class="font-semibold text-lg text-primary mb-2">Portofolio</h4>
+                    <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white">Project terbaru</h2>
+                    <p class="font-medium text-md text-secondary">Selami proyek terkini saya, di mana kreativitas
+                        bertemu dengan fungsionalitas. Setiap karya memamerkan perjalanan saya dalam menyelesaikan
+                        tantangan kompleks dengan solusi inovatif dan visual yang menarik. Mari kita jelajahi keahlian
+                        di balik setiap karya bersama!</p>
                 </div>
             </div>
 
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 <div class="mb-12 p-4 md:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p2.png" alt="landing-page" width="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5">Al Hajjri Prima Saputra Landing page</h3>
-                        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Eveniet voluptatibus omnis exercitationem tempora nostrum tenetur error
-                            unde aliquam voluptas animi?</p>
+                        <img src="dist/img/portfolio/p1.png" alt="playpal" width="w-full">
+                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Platform main game
+                            bareng: Playpal</h3>
+                        <p class="font-medium text-base text-secondary p-3">
+                            "PlayPal" adalah platform web yang dirancang untuk menghubungkan gamers berdasarkan
+                            preferensi dan level keahlian mereka dalam berbagai game populer. Dibangun dengan HTML, CSS,
+                            dan Bootstrap untuk front-end yang responsif, serta Flask dan MongoDB di back-end, platform
+                            ini memanfaatkan JSON, jQuery, dan AJAX untuk interaksi data yang efisien, memungkinkan
+                            pencarian teman main yang sesuai dengan kebutuhan pengguna.</p>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p3.png" alt="landing-page" width="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5">Al Hajjri Prima Saputra Landing page</h3>
-                        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Eveniet voluptatibus omnis exercitationem tempora nostrum tenetur error
-                            unde aliquam voluptas animi?</p>
+                        <img src="dist/img/portfolio/p2.png" alt="sweeter" width="w-full">
+                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Platform sosial media:
+                            Sweeter</h3>
+                        <p class="font-medium text-base text-secondary p-3">"Sweeter" dirancang untuk memungkinkan
+                            pengguna berbagi 'momen manis' mereka. Dengan menggunakan HTML, CSS, dan framework Bulma
+                            untuk front-end, serta mengimplementasikan Flask sebagai framework back-end dengan database
+                            MongoDB, proyek ini menunjukkan keahlian saya dalam mengembangkan aplikasi web full-stack.
+                            Integrasi AJAX dan jQuery untuk pemrosesan data secara asinkron, serta penggunaan JSON untuk
+                            pertukaran data</p>
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <div class="rounded-md shadow-md overflow-hidden">
+                        <img src="dist/img/portfolio/p3.png" alt="azel-coffee" width="w-full">
+                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Landing page: Azel coffee
+                        </h3>
+                        <p class="font-medium text-base text-secondary p-3">Proyek "Azel Coffee" adalah pembuatan
+                            website company profile untuk kafe kopi Azel, di mana saya menggunakan HTML, CSS, dan
+                            JavaScript untuk menciptakan sebuah tampilan yang elegan dan user-friendly. Fokus utama
+                            adalah pada desain responsif yang memudahkan navigasi, ditambah dengan elemen interaktif
+                            untuk meningkatkan pengalaman pengguna.</p>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/portfolio/p4.png" alt="landing-page" width="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5">Al Hajjri Prima Saputra Landing page</h3>
-                        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Eveniet voluptatibus omnis exercitationem tempora nostrum tenetur error
-                            unde aliquam voluptas animi?</p>
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p1.png" alt="landing-page" width="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5">Al Hajjri Prima Saputra Landing page</h3>
-                        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Eveniet voluptatibus omnis exercitationem tempora nostrum tenetur error
-                            unde aliquam voluptas animi?</p>
+                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Platform pemasaran
+                            produk: TokoEs</h3>
+                        <p class="font-medium text-base text-secondary p-3">"TokoEs," adalah sebuah platform digital
+                            yang dirancang untuk mendukung UMKM dalam mengelola dan memasarkan produk mereka secara
+                            online. Menggunakan kombinasi HTML, CSS, dan Bootstrap untuk front-end yang responsif dan
+                            menarik, serta PHP dan MySQL di back-end untuk fungsionalitas database yang kuat </p>
                     </div>
                 </div>
 
@@ -204,14 +238,15 @@
     <!-- portfolio section end -->
 
     <!-- contact section start  -->
-    <section id="contact" class="pt-36 pb-32 bg-slate-100">
+    <section id="contact" class="pt-24 pb-32 bg-transparent dark:bg-dark">
         <div class="container">
             <div class="w-full px-4 md:mx-auto">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">Hubungi saya</h2>
-                    <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur
-                        adipisicing elit. Cumque, harum.</p>
+                    <h4 class="font-semibold text-lg text-primary mb-2">Kontak</h4>
+                    <h2 class="font-bold text-dark text-xl mb-4 sm:text-2xl lg:text-3xl dark:text-white">Hubungi saya</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">Punya ide atau butuh bantuan? Jangan ragu,
+                        saya selalu siap mendengar dan membantu. Hubungi saya, mari kita buat sesuatu yang luar biasa
+                        bersama!</p>
                 </div>
             </div>
             <form>
@@ -242,7 +277,7 @@
     <!-- contact section end  -->
 
     <!-- footer section start -->
-    <footer class="bg-dark pt-24 pb-12">
+    <footer class="bg-dark pt-24 pb-12 dark:bg-slate-800">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/2">
@@ -308,11 +343,19 @@
                                 d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                         </svg></a>
                 </div>
-                <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-pink-500"> ❤️</span>  oleh <a href="https://instagram.com/alhajjriprimasaputra_" target="_blank" class="font-bold text-primary"> Al Hajjri Prima Saputra</a>, menggunakan <a href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500"> Tailwind CSS</a> </p>
+                <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-pink-500">
+                        ❤️</span> oleh <a href="https://instagram.com/alhajjriprimasaputra_" target="_blank"
+                        class="font-bold text-primary"> Al Hajjri Prima Saputra</a>, menggunakan <a
+                        href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500"> Tailwind CSS</a>
+                </p>
             </div>
         </div>
     </footer>
     <!-- footer section end -->
+
+    <!-- back to top start -->
+    <a href="#home" id="to-top" class="hidden fixed justify-center items-center z-[9999] bottom-4 right-4 p-4 h-14 w-14 bg-primary rounded-full hover:animate-pulse"><span class="block w-5 h-5 border-t-2 border-l-2 rotate-45  mt-2"></span></a>
+    <!-- back to top end -->
 
     <script src="dist/js/script.js"></script>
 </body>
