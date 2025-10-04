@@ -26,29 +26,72 @@ window.onscroll = function(){
 
 // klik di luar hamburger
 window.addEventListener('click', function(e){
-    if(e.target != hamburger && e.target != navMenu){
+    if(!hamburger.contains(e.target) && !navMenu.contains(e.target)){
         hamburger.classList.remove('hamburger-active');
         navMenu.classList.add('hidden')
     }
 })
 
-// darkmode toggle
-const darkToggle = document.querySelector('#dark-toggle')
-const html = document.querySelector('html');
+// --- Certificate Show More/Less ---
+document.addEventListener('DOMContentLoaded', function () {
+    const certificatesGrid = document.getElementById('certificates-grid');
+    // Pastikan grid ada sebelum melanjutkan
+    if (!certificatesGrid) return;
 
-darkToggle.addEventListener('click', function(){
-    if (darkToggle.checked){
-        html.classList.add('dark')
-        localStorage.theme = 'dark';
-    }else{
-        html.classList.remove('dark')
-        localStorage.theme = 'light';
+    const allCertificates = Array.from(certificatesGrid.getElementsByClassName('certificate-item'));
+    const showMoreContainer = document.getElementById('show-more-container');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnArrow = document.getElementById('btn-arrow');
+    
+    const certificatesToShowInitially = 6;
+    let isShowingAll = false;
+
+    // Tampilkan tombol hanya jika ada sertifikat yang perlu disembunyikan
+    if (allCertificates.length > certificatesToShowInitially) {
+        showMoreContainer.style.display = 'block';
     }
-})
 
-// pindahkah posisi toggle sesuai mode
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    darkToggle.checked = true;
-  } else {
-    darkToggle.checked = false;
-  }
+    // Sembunyikan sertifikat yang berlebih saat halaman dimuat
+    allCertificates.forEach((cert, index) => {
+        if (index >= certificatesToShowInitially) {
+            cert.style.display = 'none';
+        }
+    });
+
+    // Tambahkan event listener ke tombol
+    showMoreBtn.addEventListener('click', () => {
+        isShowingAll = !isShowingAll;
+
+        allCertificates.forEach((cert, index) => {
+            if (index >= certificatesToShowInitially) {
+                cert.style.display = isShowingAll ? 'block' : 'none';
+            }
+        });
+
+        if (isShowingAll) {
+            btnText.textContent = 'Tampilkan Lebih Sedikit';
+            btnArrow.style.transform = 'rotate(180deg)';
+        } else {
+            btnText.textContent = 'Tampilkan Lebih Banyak';
+            btnArrow.style.transform = 'rotate(0deg)';
+        }
+    });
+});
+
+const tabs = document.querySelectorAll(".tab-btn");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((btn) => {
+        btn.classList.remove("bg-primary", "text-white");
+        btn.classList.add("bg-gray-200", "text-gray-700");
+      });
+      tab.classList.add("bg-primary", "text-white");
+      tab.classList.remove("bg-gray-200", "text-gray-700");
+
+      contents.forEach((c) => c.classList.add("hidden"));
+      document.querySelector("#tab-" + tab.dataset.tab).classList.remove("hidden");
+    });
+  });

@@ -27,7 +27,3 @@ body{
  .hamburger-active > span:nth-child(2){
     @apply scale-0;
  }
-
- #dark-toggle:checked ~ label div.toggle-circle{
-   @apply translate-x-3;
- }
