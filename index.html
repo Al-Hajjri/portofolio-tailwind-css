@@ -1,62 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Hajjri</title>
-    <link rel="stylesheet" href="dist/output.css">
-    <script>if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }</script>
+    <title>Al Hajjri Prima Saputra - Mobile Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06b6d4',
+                        secondary: '#64748b',
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hamburger-line {
+            width: 30px;
+            height: 2px;
+            margin: 6px 0;
+            background-color: #1f2937;
+        }
+        .hamburger.hamburger-active > span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.hamburger-active > span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.hamburger-active > span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        .toggle-circle {
+            transition: transform 0.3s ease;
+        }
+        .certificate-item {
+            transition: all 0.3s ease;
+        }
+        .certificate-item:hover {
+            transform: translateY(-5px);
+        }
+        .tech-stack {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glassmorphism {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .project-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.8);
+            transform: translateY(-2px);
+        }
+    
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-50 transition-all duration-300">
     <!-- header start -->
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
-        <div class="container">
+    <header class="glassmorphism fixed top-0 left-0 w-full flex items-center z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                    <a href="#home" class="font-bold text-lg text-primary dark:text-white block py-6">Al Hajjri</a>
+                    <a href="#home" class="font-bold text-2xl text-primary block py-6 hover:text-cyan-600 transition-colors duration-300">Al Hajjri</a>
                 </div>
                 <div class="flex items-center px-4">
-                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
-                        <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
-                        <span class="hamburger-line transition duration-300 ease-in-out"></span>
-                        <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
                     </button>
-                    <nav id="nav-menu"
-                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent">
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white/95 backdrop-blur-md shadow-xl rounded-xl max-w-[280px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none border border-gray-200 lg:border-none">
                         <ul class="block lg:flex">
                             <li class="group">
-                                <a href="#home"
-                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Home</a>
+                                <a href="#home" class="text-base text-gray-700 py-3 mx-6 flex group-hover:text-primary transition-all duration-300 font-medium">Home</a>
                             </li>
                             <li class="group">
-                                <a href="#about"
-                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">About Me</a>
+                                <a href="#about" class="text-base text-gray-700 py-3 mx-6 flex group-hover:text-primary transition-all duration-300 font-medium">About Me</a>
                             </li>
                             <li class="group">
-                                <a href="#portfolio"
-                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Portofolio</a>
+                                <a href="#experience" class="text-base text-gray-700 py-3 mx-6 flex group-hover:text-primary transition-all duration-300 font-medium">Experience</a>
                             </li>
                             <li class="group">
-                                <a href="#contact"
-                                    class="text-base text-dark py-2 mx-6 flex group-hover:text-primary dark:text-white">Kontak</a>
+                                <a href="#certificate" class="text-base text-gray-700 py-3 mx-6 flex group-hover:text-primary transition-all duration-300 font-medium">Certificates</a>
                             </li>
-                            <li class="flex items-center pl-8 mt-3 lg:mt-0">
-                                <div class="flex">
-                                    <span class="mr-2 text-sm text-slate-500">light</span>
-                                    <input type="checkbox" class="hidden" id="dark-toggle">
-                                    <label for="dark-toggle">
-                                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
-                                            <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
-                                        </div>
-                                    </label>
-                                    <span class="ml-2 text-sm text-slate-500">dark</span>
-                                </div>
+                            <li class="group">
+                                <a href="#contact" class="text-base text-gray-700 py-3 mx-6 flex group-hover:text-primary transition-all duration-300 font-medium">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -67,32 +149,72 @@
     <!-- header end -->
 
     <!-- hero section start -->
-    <section id="home" class="pt-36 pb-6 dark:bg-dark">
-        <div class="container">
-            <div class="flex flex-wrap">
+    <section id="home" class="pt-28 pb-20 min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50"></div>
+        <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-bounce-slow"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-wrap items-center">
                 <div class="w-full self-center px-4 lg:w-1/2">
-                    <h1 class="text-base font-semibold text-primary md:text-xl ">Hello everyone 😉, I'm <span
-                            class="block font-bold text-dark text-2xl mt-1 lg:text-4xl dark:text-white">Al Hajjri Prima Saputra</span>
-                    </h1>
-                    <h2 class="font-medium text-secondary text-lg mb-5 dark:text-white">Web Developer</h2>
-                    <p class="font-medium text-secondary mb-8 leading-relaxed">Turn Your Dream Website into Reality, Let's Start Together <br> 
-                        <span class="font-bold text-dark dark:text-white">Let's Go</span>
-                    </p>                    
+                    <div class="animate-slide-in">
+                        <h1 class="text-lg font-semibold text-primary md:text-xl mb-4">Hello everyone 👋, I'm 
+                            <span class="block font-bold text-gray-900 text-3xl mt-3 lg:text-6xl">
+                                Al Hajjri Prima Saputra
+                            </span>
+                        </h1>
+                        <h2 class="font-bold text-3xl mb-6 tech-stack lg:text-4xl">Mobile Developer | Data Scientist</h2>
+                        <p class="text-gray-600 mb-10 leading-relaxed text-lg max-w-lg">
+                            Turn Your Dream Applications into Reality. Let's Start Building Something Amazing Together! 
+                            <span class="block font-bold text-gray-900 mt-2 text-xl">Ready to Code the Future with Apps and Insights? 🚀</span>
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-5">
+                            <a href="#contact" class="btn-glow inline-flex items-center justify-center text-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 py-4 px-10 rounded-full hover:from-cyan-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                                <span class="mr-3">💬</span>
+                                Let's Talk
+                            </a>
+                            <a href="#experience" class="inline-flex items-center justify-center text-lg font-semibold text-cyan-600 border-2 border-cyan-500 py-4 px-10 rounded-full hover:bg-cyan-500 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg">
+                                <span class="mr-3">🎯</span>
+                                View My Experience
+                            </a>
+                        </div>
 
-                    <a href="#contact"
-                    class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">
-                    Contact Me
-                </a>
-                
+                        <div class="flex items-center space-x-8 mt-10">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">10+</div>
+                                <div class="text-sm text-gray-600">Projects</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">5+</div>
+                                <div class="text-sm text-gray-600">Technologies</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">2+</div>
+                                <div class="text-sm text-gray-600">Years Learning</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
-                    <div class="relative mt-10 lg:mt-0 lg:right-0 ">
-                        <img src="dist/img/Al.png" alt="Al Hajjri Prima Saputra" class="max-w full mx-auto relative z-10 ">
-                        <span class="absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
-                              <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#22d3ee" d="M46.3,-20.1C52.2,3.3,44,26.3,27.4,38.6C10.7,51,-14.4,52.7,-32,40.7C-49.6,28.7,-59.8,3,-53.2,-21.3C-46.6,-45.5,-23.3,-68.4,-1.6,-67.8C20.1,-67.3,40.3,-43.5,46.3,-20.1Z" transform="translate(100 100) scale(1.1)" />
-                              </svg>
-                        </span>
+                    <div class="relative mt-10 lg:mt-0 flex justify-center">
+                        <div class="relative animate-scale-in">
+                            <div class="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 p-2 animate-float shadow-2xl">
+                                <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-4 border-white">
+                                    <div class="text-8xl lg:text-9xl">👨‍💻</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-6 -right-6 w-12 h-12 bg-yellow-400 rounded-full animate-ping shadow-lg flex items-center justify-center">
+                                <span class="text-2xl">⚡</span>
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 w-10 h-10 bg-pink-400 rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                                <span class="text-xl">🔥</span>
+                            </div>
+                            <div class="absolute top-10 -left-8 w-8 h-8 bg-green-400 rounded-full animate-bounce shadow-lg flex items-center justify-center">
+                                <span class="text-lg">✨</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,234 +223,683 @@
     <!-- hero section end -->
 
     <!-- about section start -->
-    <section id="about" class="pt-36 pb-32 dark:bg-dark">
-        <div class="container">
-            <div class="flex flex-wrap">
-                <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold uppercase text-primary text-lg mb-3">About Me</h4>
-                    <h2 class="font-bold text-gray-900 text-xl mb-5 max-w-md lg:text-2xl dark:text-white">Start your web development journey!</h2>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">I am a fresh graduate in Informatics Engineering from Universitas Putra Indonesia YPTK Padang, passionate about web development. Skilled in HTML, CSS, and JavaScript, with experience in mobile development using Kotlin. Currently exploring React.js and eager to expand my expertise in modern web frameworks.</p>
-
+    <section id="about" class="py-24 bg-white transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full px-4 mb-12 lg:w-1/2">
+                    <div class="animate-fade-in-up">
+                        <h4 class="font-bold uppercase text-primary text-lg mb-4 tracking-wider">About Me</h4>
+                        <h2 class="font-bold text-gray-900 text-4xl mb-8 lg:text-5xl leading-tight">Crafting Apps, Uncovering Insights</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                         I am a fresh graduate passionate about technology, currently focusing on mobile application development through Kotlin and Flutter. Alongside this, I am building my foundation in data analysis and data science, exploring Python, SQL, and basic machine learning to uncover insights from data. My goal is to grow into a professional who can combine mobile development with data-driven solutions, creating applications that are not only functional but also empowered by meaningful insights.
+                        </p>  
+                        <div class="mb-10">
+                            <h3 class="font-bold text-gray-900 mb-6 text-2xl">Tech Stack 🛠️</h3>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="px-5 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">Kotlin</span>
+                                <span class="px-5 py-3 bg-gradient-to-r from-blue-400 to-cyan-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">Flutter</span>
+                                <span class="px-5 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">Python</span>
+                                <span class="px-5 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">SQL</span>
+                                <span class="px-5 py-3 bg-gradient-to-r from-rose-400 to-red-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-gray-900 text-2xl mb-4 lg:text-2xl lg:pt-10 dark:text-white">Connect with me</h3>
-                    <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Let's connect and create together!  
-                        Collaboration opens new opportunities, and together we can build amazing projects.  
-                        Ready to embark on this exciting journey? Join in, and let's shape the digital future!</p>                    
-                    <div class="flex items-center">
-                        <!-- instagram -->
-                        <a href="https://www.instagram.com/alhajjriprimasaputra_/" target="_blank"
-                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                            <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>Instagram</title>
-                                <path
-                                    d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
-                            </svg></a>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="font-bold text-gray-900 text-3xl mb-6 lg:text-4xl">Let's Connect! 🤝</h3>
+                        <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                            Ready to collaborate and create something amazing together? I'm always open to new opportunities, exciting projects, and meaningful connections. Let's build the future with intelligent applications and data-driven strategies!
+                        </p>
+                        
+                        <div class="flex items-center space-x-6 mb-8">
+                            <a href="https://www.instagram.com/alhajjriprimasaputra_/" target="_blank" class="group w-14 h-14 rounded-xl flex justify-center items-center bg-gradient-to-br from-pink-500 to-rose-500 text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <svg role="img" width="28" class="fill-current group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
 
-                        <!-- linkedin -->
-                        <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank"
-                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                            <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>LinkedIn</title>
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg></a>
+                            <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank" class="group w-14 h-14 rounded-xl flex justify-center items-center bg-gradient-to-br from-blue-600 to-blue-700 text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <svg role="img" width="28" class="fill-current group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
 
+                            <a href="https://github.com/Al-Hajjri" target="_blank" class="group w-14 h-14 rounded-xl flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-900 text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <svg role="img" width="28" class="fill-current group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                                </svg>
+                            </a>
+                        </div>
 
-                        <!-- github -->
-                        <a href="https://github.com/Al-Hajjri" target="_blank"
-                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                            <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>GitHub</title>
-                                <path
-                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                            </svg></a>
+                        <div class="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-xl">
+                            <h4 class="font-bold text-gray-900 mb-3">Ready to collaborate?</h4>
+                            <p class="text-gray-600 mb-4">Let's discuss your next project and bring your ideas to life!</p>
+                            <a href="#contact" class="inline-flex items-center text-primary font-semibold hover:text-cyan-600 transition-colors duration-300">
+                                Get in touch 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- about section end -->
 
+<!-- Experience Timeline Start -->
+<section id="experience" class="py-24 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <h4 class="font-semibold text-lg text-primary mb-3 tracking-wider uppercase">Experience</h4>
+      <h2 class="font-bold text-gray-900 text-4xl mb-6 lg:text-5xl">Training & Courses</h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Berikut adalah beberapa pelatihan dan kursus yang telah saya selesaikan untuk mengasah keterampilan saya di berbagai bidang.
+      </p>
+    </div>
 
-    <!-- portfolio section start -->
-    <section id="portfolio" class="pt-28 bg-slate-100 dark:bg-slate-800">
-        <div class="container">
+    <div class="max-w-3xl mx-auto">
+      <div class="relative border-l-2 border-gray-200">
+        
+        <!-- BEKUP -->
+        <div class="mb-10 ml-8">
+          <span class="absolute -left-[11px] w-6 h-6 bg-primary rounded-full border-4 border-white flex items-center justify-center"></span>
+          <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="font-bold text-xl text-gray-900">Flutter Developer Cohort</h3>
+            <p class="text-md font-semibold text-primary">BEKUP - Baparekraf for Startup</p>
+            <span class="text-sm text-gray-500 font-medium">Jul 2025 - Present</span>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Program kolaborasi Bekraf & Dicoding. Belajar Flutter end-to-end: state management (Provider),
+              SQLite & SharedPreferences, WorkManager, API integration, testing, hingga integrasi Machine Learning.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Flutter</span>
+              <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs font-semibold">Dart</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MySkill -->
+        <div class="mb-10 ml-8">
+          <span class="absolute -left-[11px] w-6 h-6 bg-primary rounded-full border-4 border-white"></span>
+          <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="font-bold text-xl text-gray-900">Bootcamp Graduate – Data Analysis Fullstack</h3>
+            <p class="text-md font-semibold text-primary">MySkill</p>
+            <span class="text-sm text-gray-500 font-medium">Jun 2025 - Jul 2025</span>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Bootcamp intensif analisis data: SQL, Python, EDA, dan Looker Studio.
+              Mengerjakan studi kasus bisnis dan dashboard interaktif untuk melatih problem solving.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">SQL</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Python</span>
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-semibold">Looker Studio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bangkit -->
+        <div class="mb-10 ml-8">
+          <span class="absolute -left-[11px] w-6 h-6 bg-primary rounded-full border-4 border-white"></span>
+          <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="font-bold text-xl text-gray-900">Mobile Development Cohort</h3>
+            <p class="text-md font-semibold text-primary">Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka</p>
+            <span class="text-sm text-gray-500 font-medium">Sep 2024 - Jan 2025</span>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Belajar Android Dev (Kotlin): Retrofit, Firebase, Room DB, LiveData, 
+              hingga ML dengan TensorFlow Lite. Mengembangkan capstone project end-to-end.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Kotlin</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Firebase</span>
+              <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-semibold">TensorFlow Lite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PT Global -->
+        <div class="mb-10 ml-8">
+          <span class="absolute -left-[11px] w-6 h-6 bg-primary rounded-full border-4 border-white"></span>
+          <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="font-bold text-xl text-gray-900">Full-Stack Web Development</h3>
+            <p class="text-md font-semibold text-primary">PT Global Investment Institusi</p>
+            <span class="text-sm text-gray-500 font-medium">Aug 2023 - Dec 2023</span>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Membangun aplikasi web dengan MongoDB, JWT Auth, Bootstrap, jQuery, AJAX, serta cloud deployment.
+              Fokus pada API integration dan database management.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-semibold">MongoDB</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Bootstrap</span>
+              <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-semibold">jQuery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Experience Timeline End -->
+
+
+    <!-- certificates section start -->
+    <section id="certificate" class="py-20 bg-white transition-colors duration-300">
+        <div class="container mx-auto px-4">
             <div class="w-full px-4">
-                <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white">Latest Projects</h2>
-                    <p class="font-medium text-md text-secondary">Explore my latest projects, where creativity meets functionality.  
-                        Each work reflects my journey in tackling challenges with innovative solutions and engaging visuals.  
-                        Let's dive into the skills behind each creation together!</p>
+                <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
+                    <h4 class="font-semibold text-lg text-primary mb-2 tracking-wider uppercase">Certificates</h4>
+                    <h2 class="font-bold text-gray-900 text-4xl mb-6 lg:text-5xl">Professional Achievements 🏆</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        A collection of certificates that represent my continuous learning journey and commitment to professional development in technology and programming.
+                    </p>
                 </div>
-                
             </div>
 
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p1.png" alt="PlayPal" class="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">PlayPal: Find Gaming Buddies</h3>
-                        <p class="font-medium text-base text-secondary p-3">
-                            PlayPal is a web platform that connects gamers based on their skills and preferences.  
-                            Built with HTML, CSS, and Bootstrap, it features a responsive front-end.  
-                            The back-end uses Flask and MongoDB, with JSON, jQuery, and AJAX for smooth data interaction.</p>                        
-                    </div>
-                    
-                </div>
-                <div class="mb-12 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p2.png" alt="Sweeter" class="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Sweeter: Mini Social Media Platform</h3>
-                        <p class="font-medium text-base text-secondary p-3">
-                            Sweeter lets users share their "sweet moments" with others.  
-                            Built with HTML, CSS, and the Bulma framework for a sleek front-end, it uses Flask and MongoDB for back-end management.  
-                            The project integrates AJAX and jQuery for asynchronous data handling, with JSON for efficient data exchange.</p>
-                    </div>
-                    
-                </div>
-                <div class="mb-12 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p3.png" alt="Azel Coffee" class="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Azel Coffee: Landing Page</h3>
-                        <p class="font-medium text-base text-secondary p-3">
-                            Azel Coffee is a company profile website for a local coffee shop.  
-                            Built with HTML, CSS, and JavaScript, it features a sleek, user-friendly design.  
-                            The project focuses on responsive layouts and interactive elements to enhance user experience.</p>
-                    </div>
-                    
-                </div>
-                <div class="mb-12 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="dist/img/portfolio/p4.png" alt="landing-page" width="w-full">
-                        <h3 class="font-semibold text-xl text-dark mb-3 mt-5 pl-3 dark:text-white">Product Marketing Platform: TokoEs</h3>
-                            <p class="font-medium text-base text-secondary p-3">
-                                TokoEs is a digital platform that helps small businesses manage and sell products online.  
-                                Built with HTML, CSS, and Bootstrap, it offers a responsive and engaging front-end.  
-                                The back-end uses PHP and MySQL to ensure robust database functionality.</p>
-                            
+            <div id="certificates-grid" class="w-full px-4 flex flex-wrap justify-center">
+
+                <!-- Certificate 1 -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/bangkit.png" alt="Sertifikat Android" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka</h3>
+                            <p class="text-gray-600 text-sm mb-3">Bangkit Academy</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Jan 2025</span>
+                                <a href="https://drive.google.com/file/d/1sGUBzRogM3n8QF7lJ0ePg0LUM3_hV9EN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Certificate 2 -->
+              <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Penerapan Machine Learning untuk Android.png" alt="Belajar Penerapan Machine Learning untuk Android" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Penerapan Machine Learning untuk Android</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Nov 2024</span>
+                                <a href="https://www.dicoding.com/certificates/JMZV4VN3NXN9" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Penerapan Machine Learning untuk Flutter.png" alt="Sertifikat Belajar Penerapan Machine Learning untuk Flutter" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Penerapan Machine Learning untuk Flutter</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Sep 2025</span>
+                                <a href="https://www.dicoding.com/certificates/72ZDK8DNVPYW" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/data analis.png" alt="DATA ANALYSIS: FULLSTACK INTENSIVE BOOTCAMP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">DATA ANALYSIS: FULLSTACK INTENSIVE BOOTCAMP</h3>
+                            <p class="text-gray-600 text-sm mb-3">MySkill</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Jul 2025</span>
+                                <a href="https://drive.google.com/file/d/1xJTVgHCgbU1TPZ5DJ39YzXvEtVc9wQMK/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Fundamental Aplikasi Flutter.png" alt="Belajar Fundamental Aplikasi Flutter" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Fundamental Aplikasi Flutter</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Aug 2025</span>
+                                <a href="https://www.dicoding.com/certificates/07Z6JRVRJXQR" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Membuat Aplikasi Flutter untuk Pemula.png" alt="Sertifikat Belajar Membuat Aplikasi Flutter untuk Pemula" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Membuat Aplikasi Flutter untuk Pemula</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">July 2025</span>
+                                <a href="https://www.dicoding.com/certificates/0LZ05D5K3X65" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 7 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Memulai Pemrograman dengan Dart.png" alt="Sertifikat Memulai Pemrograman dengan Dart" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Memulai Pemrograman dengan Dart</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">July 2025</span>
+                                <a href="https://www.dicoding.com/certificates/RVZKG4LLOXD5" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 8 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Memulai Dasar Pemrograman untuk Menjadi Pengembang Software.png" alt="Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Memulai Dasar Pemrograman untuk Menjadi Pengembang Software</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">July 2025</span>
+                                <a href="https://www.dicoding.com/certificates/0LZ05OKY3X65" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- Certificate 9 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Prinsip Pemrograman SOLID.png" alt="Sertifikat Belajar Prinsip Pemrograman SOLID" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Prinsip Pemrograman SOLID</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Sept 2025</span>
+                                <a href="https://www.dicoding.com/certificates/MRZM6QJEKPYQ" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Certificate 10 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Penggunaan Generative AI.png" alt="Sertifikat Belajar Penggunaan Generative AI" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Penggunaan Generative AI</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Jun 2025</span>
+                                <a href="https://www.dicoding.com/certificates/JMZVE645RPN9" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                                <!-- Certificate 11 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/AI Praktis untuk Produktivitas.png" alt="Sertifikat AI Praktis untuk Produktivitas" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">AI Praktis untuk Produktivitas</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Mei 2025</span>
+                                <a href="https://www.dicoding.com/certificates/72ZD5GN6LZYW" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       
+                                                            <!-- Certificate 12 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Dasar Cloud dan Gen AI di AWS.png" alt="Sertifikat Belajar Dasar Cloud dan Gen AI di AWS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Dasar Cloud dan Gen AI di AWS</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Mei 2025</span>
+                                <a href="https://www.dicoding.com/certificates/ERZRE341QXYV" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                                                            <!-- Certificate 13 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Dasar UX Design.png" alt="Sertifikat Belajar Dasar UX Design" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Dasar UX Design</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">April 2025</span>
+                                <a href="https://www.dicoding.com/certificates/RVZKW525QZD5" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+         <!-- Certificate 14 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Membuat Aplikasi Android dengan Jetpack Compose.png" alt="Sertifikat Belajar Membuat Aplikasi Android dengan Jetpack Compose" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Membuat Aplikasi Android dengan Jetpack Compose</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Maret 2025</span>
+                                <a href="https://www.dicoding.com/certificates/NVP756L7RXR0" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                         <!-- Certificate 15 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Pengembangan Aplikasi Android Intermediate.png" alt="Sertifikat Belajar Pengembangan Aplikasi Android Intermediate" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Pengembangan Aplikasi Android Intermediate</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Des 2024</span>
+                                <a href="https://www.dicoding.com/certificates/6RPNYEWW9Z2M" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                         <!-- Certificate 16 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Fundamental Aplikasi Android.png" alt="Sertifikat Belajar Fundamental Aplikasi Android   " class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Fundamental Aplikasi Android</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Oct 2024</span>
+                                <a href="https://www.dicoding.com/certificates/1OP844LY1ZQK" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                         <!-- Certificate 17 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Dasar AI.png" alt="Sertifikat Belajar Dasar AI" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Dasar AI</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Oct 2024</span>
+                                <a href="https://www.dicoding.com/certificates/2VX3511E3PYQ" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                                         <!-- Certificate 18 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Membuat Aplikasi Android untuk Pemula.png" alt="Sertifikat Belajar Membuat Aplikasi Android untuk Pemula" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Membuat Aplikasi Android untuk Pemula</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Oct 2024</span>
+                                <a href="https://www.dicoding.com/certificates/KEXLYGQV0ZG2" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Certificate 19 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Memulai Pemrograman dengan Kotlin.png" alt="Sertifikat Memulai Pemrograman dengan Kotlin " class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Memulai Pemrograman dengan Kotlin</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Sept 2024</span>
+                                <a href="https://www.dicoding.com/certificates/MRZMY584LZYQ" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    <!-- Certificate 20 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Belajar Dasar Git dengan GitHub.png" alt="Sertifikat Belajar Dasar Git dengan GitHub" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Belajar Dasar Git dengan GitHub</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">July 2025</span>
+                                <a href="https://www.dicoding.com/certificates/N9ZO23G06PG5" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                                    <!-- Certificate 21 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/Pengenalan ke Logika Pemrograman.png" alt="Sertifikat Pengenalan ke Logika Pemrograman" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Pengenalan ke Logika Pemrograman</h3>
+                            <p class="text-gray-600 text-sm mb-3">Dicoding Indonesia</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">July 2025</span>
+                                <a href="https://www.dicoding.com/certificates/98XWOWD8LZM3" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                                    <!-- Certificate 22 (Hidden by default) -->
+                <div class="certificate-item mb-8 p-4 md:w-1/2 lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                        <div class="relative overflow-hidden h-48 bg-white">
+                            <img src="dist/img/certificate/fullstack web development.png" alt="Sertifikat Fullstack Web Development Intermediate" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">Fullstack Web Development Intermediate</h3>
+                            <p class="text-gray-600 text-sm mb-3">LearningX</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Des 2023</span>
+                                <a href="https://drive.google.com/file/d/1DwfDQJ5IBLca-9l-GVm8RSOq5klbvHE9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-600 text-sm font-medium">Lihat Sertifikat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Show More Button -->
+            <div id="show-more-container" class="text-center mt-8 w-full" style="display: none;">
+                <button id="show-more-btn" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-cyan-600 text-white font-semibold rounded-full hover:from-cyan-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <span class="mr-2">📜</span>
+                    <span id="btn-text">Tampilkan Lebih Banyak</span>
+                    <svg id="btn-arrow" class="w-5 h-5 ml-2 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
-    <!-- portfolio section end -->
+    <!-- certificates section end -->
 
     <!-- contact section start  -->
-    <section id="contact" class="pt-24 pb-32 bg-transparent dark:bg-dark">
-        <div class="container">
-            <div class="w-full px-4 md:mx-auto">
-                <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-                    <h2 class="font-bold text-dark text-xl mb-4 sm:text-2xl lg:text-3xl dark:text-white">Get in Touch</h2>
-                    <p class="font-medium text-md text-secondary md:text-lg">Have an idea or need help? Feel free to reach out. Let's create something amazing together!</p>
+    <section id="contact" class="pt-24 pb-32 bg-transparent">
+        <div class="container mx-auto px-4">          
+            <div class="max-w-xl mx-auto text-center mb-16">
+                <h4 class="font-semibold text-lg text-primary mb-3 tracking-wider uppercase">Contact</h4>
+                <h2 class="font-bold text-gray-900 text-4xl mb-6 lg:text-5xl">Get in Touch</h2>
+                <p class="text-lg text-secondary">Have an idea or need help? Feel free to reach out. Let's create something amazing together!</p>
+            </div>
+            <form class="max-w-xl mx-auto">
+                <div class="w-full px-4 mb-8">
+                    <label for="name" class="text-base text-primary font-bold">Name</label>
+                    <input type="text" id="name"
+                        class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
                 </div>
-            </div>            
-            <form>
-                <div class="w-full lg:w-2/3 lg:mx-auto">
-                    <div class="w-full px-4 mb-8">
-                        <label for="name" class="text-base text-primary font-bold">Name</label>
-                        <input type="text" id="name"
-                            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
-                    </div>
-                    <div class="w-full px-4 mb-8">
-                        <label for="email" class="text-base text-primary font-bold">Email</label>
-                        <input type="email" id="email"
-                            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
-                    </div>
-                    <div class="w-full px-4 mb-8">
-                        <label for="message" class="text-base text-primary font-bold">Message</label>
-                        <textarea type="text" id="message"
-                            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
-                    </div>
-                    <div class="w-full px-4">
-                        <button
-                            class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Send</button>
-                    </div>
+                <div class="w-full px-4 mb-8">
+                    <label for="email" class="text-base text-primary font-bold">Email</label>
+                    <input type="email" id="email"
+                        class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+                </div>
+                <div class="w-full px-4 mb-8">
+                    <label for="message" class="text-base text-primary font-bold">Message</label>
+                    <textarea type="text" id="message"
+                        class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
+                </div>
+                <div class="w-full px-4">
+                    <button
+                        class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Send</button>
                 </div>
             </form>
         </div>
     </section>
     <!-- contact section end  -->
 
-    <!-- footer section start -->
-    <footer class="bg-dark pt-24 pb-12 dark:bg-slate-800">
-        <div class="container">
-            <div class="flex flex-wrap">
-                <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/2">
-                    <h3 class="font-bold text-2xl mb-2"> Contact Me</h3>
-                    <p>alhajjriprimasaputra@gmail.com</p>
-                    <p>Jl. Dr soetomo no.123</p>
-                    <p>padang</p>
-                </div>
-                <div class="w-full px-4 mb-12 md:w-1/2">
-                    <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
-                    <ul class="text-slate-300">
-                        <li>
-                            <a href="#home" class="inline-block text-base hover:text-primary mb-3">Home</a>
-                        </li>
-                        <li>
-                            <a href="#about" class="inline-block text-base hover:text-primary mb-3">About Me </a>
-                        </li>
-                        <li>
-                            <a href="#portfolio" class="inline-block text-base hover:text-primary mb-3">Portofolio</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="w-full pt-10 border-t border-slate-700">
-                <div class="flex items-center justify-center mb-5">
-                    <!-- instagram -->
-                    <a href="http://instagram.com/alhajjriprimasaputra_" target="_blank"
-                        class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                        <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>Instagram</title>
-                            <path
-                                d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
-                        </svg></a>
+<!-- footer section start -->
+<footer class="bg-transparent pt-24 pb-12 border-t border-gray-200">
+  <div class="container mx-auto px-4">
+    <!-- Konten utama footer -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+      <!-- Contact -->
+      <div class="text-gray-600 font-medium">
+        <h3 class="font-bold text-2xl mb-2 text-gray-800">Contact Me</h3>
+        <p>alhajjriprimasaputra@gmail.com</p>
+        <p>Jl. Tan Malaka</p>
+        <p>Kab. Lima Puluh Kota, Sumatera Barat</p>
+      </div>
 
-                    <!-- linkedin -->
-                    <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank"
-                        class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                        <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>LinkedIn</title>
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg></a>
+      <!-- Tautan -->
+      <div>
+        <h3 class="font-semibold text-xl text-gray-800 mb-5">Tautan</h3>
+        <ul class="text-gray-600 space-y-3">
+          <li><a href="#home" class="inline-block text-base hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="#about" class="inline-block text-base hover:text-primary transition-colors duration-300">About Me</a></li>
+          <li><a href="#experience" class="inline-block text-base hover:text-primary transition-colors duration-300">Experience</a></li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Sosial Media -->
+    <div class="w-full pt-10 mt-10 border-t border-gray-200">
+      <div class="flex items-center justify-center mb-5 space-x-3">
+        <!-- instagram -->
+        <a href="http://instagram.com/alhajjriprimasaputra_" target="_blank"
+          class="w-9 h-9 rounded-full flex justify-center items-center border border-gray-400 text-gray-500 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300">
+          <!-- svg instagram -->
+          <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title>Instagram</title>
+            <path
+              d="M7.03.08C5.75.14 4.88.34 4.12.64c-.79.3-1.46.72-2.12 1.39-.66.67-1.08 1.34-1.38 2.13-.3.76-.5 1.64-.55 2.91C0 8.36-.01 8.77 0 12.03c.01 3.26.02 3.67.08 4.95.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.39 2.12.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.55 1.28.06 1.69.07 4.95.06 3.26 0 3.67-.01 4.95-.08 1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.12-1.39.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.55-2.91.06-1.28.07-1.69.06-4.95 0-3.26-.01-3.67-.08-4.95-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.12-.67-.67-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.55C15.65.01 15.24 0 12 .01 8.72.02 8.31.03 7.03.08zM12 5.86A6.14 6.14 0 1 1 5.86 12 6.14 6.14 0 0 1 12 5.86zm0-2.36A8.5 8.5 0 1 0 20.5 12 8.51 8.51 0 0 0 12 3.5zm6.44-.66a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z" />
+          </svg>
+        </a>
 
-                    <!-- github -->
-                    <a href="https://github.com/Al-Hajjri" target="_blank"
-                        class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                        <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>GitHub</title>
-                            <path
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                        </svg></a>
-                </div>
-                <p class="font-medium text-xs text-slate-500 text-center">
-                    Built with <span class="text-pink-500">❤️</span> by 
-                    <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank" class="font-bold text-primary">Al Hajjri Prima Saputra</a>, 
-                    using <a href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>.
-                </p>                
-            </div>
-        </div>
-    </footer>
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank"
+          class="w-9 h-9 rounded-full flex justify-center items-center border border-gray-400 text-gray-500 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300">
+          <!-- svg linkedin -->
+          <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <title>LinkedIn</title>
+            <path
+              d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43c-1.14 0-2.06-.93-2.06-2.07 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.07-2.06 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z" />
+          </svg>
+        </a>
+
+        <!-- github -->
+        <a href="https://github.com/Al-Hajjri" target="_blank"
+          class="w-9 h-9 rounded-full flex justify-center items-center border border-gray-400 text-gray-500 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300">
+          <!-- svg github -->
+          <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <title>GitHub</title>
+            <path
+              d="M12 .3c-6.63 0-12 5.37-12 12 0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.09-.74.08-.72.08-.72 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.17 0 0 1.01-.32 3.3 1.23a11.53 11.53 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.25 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.36.82 1.1.82 2.22v3.29c0 .31.21.69.83.57C20.56 22.09 24 17.59 24 12.3c0-6.63-5.37-12-12-12z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- copyright -->
+      <p class="font-medium text-xs text-gray-500 text-center">
+        Built with <span class="text-pink-500">❤️</span> by
+        <a href="https://www.linkedin.com/in/al-hajjri-prima-saputra/" target="_blank"
+          class="font-bold text-primary">Al Hajjri Prima Saputra</a>, using
+        <a href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- footer section end -->
+
     <!-- footer section end -->
 
     <!-- back to top start -->
     <a href="#home" id="to-top" class="hidden fixed justify-center items-center z-[9999] bottom-4 right-4 p-4 h-14 w-14 bg-primary rounded-full hover:animate-pulse"><span class="block w-5 h-5 border-t-2 border-l-2 rotate-45  mt-2"></span></a>
     <!-- back to top end -->
-
     <script src="dist/js/script.js"></script>
 </body>
 
